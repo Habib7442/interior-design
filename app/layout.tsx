@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { VoiceAssistant } from "@/components/voice-assistant";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,7 +32,10 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased selection:bg-brand-gold/30 selection:text-brand-charcoal`}
         suppressHydrationWarning
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          {children}
+          <VoiceAssistant />
+        </SmoothScroll>
       </body>
     </html>
   );
