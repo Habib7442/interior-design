@@ -46,9 +46,11 @@ export async function POST(req: Request) {
 
     let generatedImageUrl = null;
 
-    for (const part of response.candidates[0].content.parts) {
-      if (part.inlineData) {
-        generatedImageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+    if (response.candidates && response.candidates[0]?.content?.parts) {
+      for (const part of response.candidates[0].content.parts) {
+        if (part.inlineData) {
+          generatedImageUrl = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+        }
       }
     }
 
